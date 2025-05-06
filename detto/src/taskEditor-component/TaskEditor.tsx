@@ -1,9 +1,9 @@
 // src/components/TaskEditor.tsx
 import type {Task} from '../leftBar-component/LeftBar';
-import './TaskEditor.css'; // Crea este archivo CSS
+import './TaskEditor.css';
 
 interface TaskEditorProps {
-  task: Task | null; // Puede recibir una tarea o null
+  task: Task | null;
 }
 
 export default function TaskEditor({ task }: TaskEditorProps) {
@@ -31,10 +31,10 @@ export default function TaskEditor({ task }: TaskEditorProps) {
                 id="taskDescription"
                 placeholder="Añade una descripción..."
                 rows={5}
-                defaultValue={"Esta es la descripción de la tarea..."} // Placeholder
+                defaultValue={"Esta es la descripción de la tarea..."} 
             />
 
-            <p><strong>ID:</strong> {task.id}</p> {/* Solo para depuración */}
+            <p><strong>ID:</strong> {task.id}</p>
 
         </div>
       </div>

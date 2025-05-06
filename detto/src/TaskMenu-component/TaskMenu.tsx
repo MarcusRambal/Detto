@@ -1,9 +1,7 @@
-// Puedes crear este componente en el mismo archivo o en uno nuevo (e.g., ContextMenu.tsx)
-
 export interface TaskMenuProps {
     position: { x: number; y: number };
-    onDelete: () => void; // Función a llamar al hacer clic en Delete
-    onDismiss: () => void; // Función para cerrar el menú (opcional, se usa con click fuera)
+    onDelete: () => void; 
+    onDismiss: () => void; 
   }
   
 export default function TaskMenu({ position, onDelete, onDismiss }: TaskMenuProps) {
@@ -34,7 +32,7 @@ export default function TaskMenu({ position, onDelete, onDismiss }: TaskMenuProp
             <li style={menuItemStyle} onClick={onDelete}>
               Eliminar Tarea
             </li>
-            {/* Puedes añadir más opciones aquí (Editar, Marcar como completada, etc.) */}
+            {/* Mas opciones */}
         </ul>
       </div>
     );
