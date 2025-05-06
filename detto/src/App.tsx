@@ -1,54 +1,29 @@
-// src/App.tsx (o donde esté tu componente principal)
+// src/App.tsx
 import React, { useState } from 'react';
-import LeftBar from './leftBar-component/LeftBar';
-import type { Task } from './leftBar-component/LeftBar';
-import TaskEditor from './taskEditor-component/taskEditor';
-import './App.css';
+import Sidebar from './leftBar-component/LeftBar';
+import MainContent from './MainContent-component/mainContent';
+import type  { Task } from './interfaces/task';
+import './App.css'; 
 
-function App() {
-  const [tasks, setTasks] = useState<Task[]>([
-      { id: 1, name: 'Diseñar interfaz inicial' },
-      { id: 2, name: 'Implementar LeftBar' },
-      { id: 3, name: 'Crear TaskEditor' },
-  ]);
-  const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
+const App: React.FC = () => {
+  const [tasks, setTasks] = useState<Task[]>([]);
 
-  const handleSelectTask = (taskId: number) => {
-    setSelectedTaskId(taskId);
+  const handleCreateTask = () => {
+    const newTask: Task = {
+      id: crypto.randomUUID(), // Genera un ID único (navegadores modernos)
+      // O usa: id: Date.now().toString(), // Alternativa más simple para IDs únicos
+      title: `Tarea ${tasks.length + 1}`,
+      content: `Este es el contenido de la Tarea ${tasks.length + 1}. ¡Hola Mundo desde la tarea!`,
+    };
+    setTasks(prevTasks => [...prevTasks, newTask]);
   };
 
-  const handleAddTask = (newTaskName: string) => {
-     const newTask: Task = {
-       id: Date.now(),
-       name: newTaskName.trim(),
-     };
-     setTasks(prevTasks => [...prevTasks, newTask]);
-  };
-
-  const handleDeleteTask = (taskIdToDelete: number) => {
-    setTasks(prevTasks => prevTasks.filter(task => task.id !== taskIdToDelete));
-    if (selectedTaskId === taskIdToDelete) {
-      setSelectedTaskId(null);
-    }
-  };
-
-  const selectedTask = tasks.find(task => task.id === selectedTaskId) || null;
-
-  // --- RENDER ---
   return (
-    <div className="app-layout">
-      <LeftBar
-        tasks={tasks} 
-        selectedTaskId={selectedTaskId} 
-        onTaskSelect={handleSelectTask}
-        onTaskAdd={handleAddTask}       
-        onTaskDelete={handleDeleteTask} 
-      />
-      <main className="main-content"> 
-        <TaskEditor task={selectedTask} /> 
-      </main>
+    <div className="app-container" style={{ display: 'flex' }}>
+      <Sidebar onCreateTask={handleCreateTask} />
+      <MainContent tasks={tasks} />
     </div>
   );
-}
+};
 
 export default App;
