@@ -1,0 +1,29 @@
+.header { 
+    background-color: #535353; 
+    padding: 5px;  
+    text-align: left;
+    margin-bottom: 5px; 
+}
+
+.headerNavList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px; 
+  }
+  
+.headerNavItem a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px;
+    display: block;
+}
+  
+.headerNavItem a:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+  

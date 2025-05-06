@@ -1,0 +1,52 @@
+/* LeftBar.css */
+.leftBar {
+    padding: 15px;
+    background-color: #f0f0f0; 
+    height: 100vh;
+    width: 250px; 
+    box-sizing: border-box;
+  }
+  
+  .leftBarHeader {
+    margin-bottom: 20px;
+  }
+  
+  .add-task-section {
+    display: flex;
+    flex-direction: column; 
+    gap: 8px; 
+  }
+  
+  .add-task-button {
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  .add-task-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  .new-task-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .taskList {
+    margin-top: 15px;
+  }
+  
+  .task-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee; 
+  }
+  
+  .no-tasks-message {
+      color: #777;
+      font-style: italic;
+      text-align: center;
+      margin-top: 20px;
+  }
